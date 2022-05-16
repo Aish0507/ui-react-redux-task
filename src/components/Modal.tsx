@@ -23,7 +23,7 @@ const Modal = ({ show, close, title, children, userFData, updateUserRowObj }: { 
     return ReactDom.createPortal(
         <Fragment>
             <div
-                className={`modalContainer ${show ? "show" : ""} `}
+                className={`modal-container ${show ? "show" : ""} `}
                 onClick={() => close()}
             >
                 <div className="modal" onClick={(e) => e.stopPropagation()}>

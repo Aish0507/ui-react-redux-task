@@ -1,4 +1,4 @@
-.modalContainer {
+.modal-container {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -95,7 +95,7 @@
     }
 }
 
-.modalContainer.show {
+.modal-container.show {
     visibility: visible;
     opacity: 1;
     z-index: 1;
