@@ -1,10 +1,11 @@
 import React from 'react'
-import Users from './Users'
+import Landing from './Landing'
 
 const Home = () => {
     return (
         <div className="wrapper">
-            <Users />
+            <Landing />
+
         </div>
 
     )

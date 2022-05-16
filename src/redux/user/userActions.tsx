@@ -4,7 +4,8 @@ import {
     FETCH_USERS_REQUEST,
     FETCH_USERS_SUCCESS,
     FETCH_USERS_FAILURE,
-    SET_USER_OBJ
+    SET_USER_OBJ,
+    UPDATE_USER_OBJ
 } from './userTypes'
 
 export const fetchUsers = () => {
@@ -45,6 +46,12 @@ export const fetchUsersFailure = (error: any) => {
 export const setUserRowObj = (user: UserRootObject) => {
     return {
         type: SET_USER_OBJ,
+        payload: user
+    }
+}
+export const updateUserRowObj = (user: UserRootObject) => {
+    return {
+        type: UPDATE_USER_OBJ,
         payload: user
     }
 }

@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { UserRootObject } from '../interface/user';
 import './EditUser.scss'
-const EditUser = () => {
-    const user: UserRootObject = useSelector((state: any) => state?.user?.userRowObj)
+const EditUser = ({ setuserFData }: { setuserFData: any }) => {
+    const user: any = useSelector((state: any) => state?.user?.userRowObj)
     const [inputField, setInputField] = useState<any>({
         name: '',
         email: '',
@@ -16,10 +15,11 @@ const EditUser = () => {
         setInputField({
             name: user?.name,
             email: user?.email,
-            city: user?.address?.city,
+            city: user?.city,
             phone: user?.phone,
             website: user?.website,
-            cname: user?.company?.name,
+            cname: user?.cname,
+            id: user?.id,
         })
     }, [user])
     const inputsHandler = (e: any) => {
@@ -28,10 +28,13 @@ const EditUser = () => {
             ...prevState,
             [name]: value,
         }));
-        console.log(name, value, inputField)
     }
+    useEffect(() => {
+        setuserFData(inputField)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [inputField]);
     return (
-        <div>
+        <Fragment>
             <label htmlFor="name">
                 Name
             </label>
@@ -105,7 +108,7 @@ const EditUser = () => {
                 className='f-control'
                 value={inputField?.cname || ''} />
             <br />
-        </div>
+        </Fragment>
     )
 }
 

@@ -2,7 +2,8 @@ import {
     FETCH_USERS_REQUEST,
     FETCH_USERS_SUCCESS,
     FETCH_USERS_FAILURE,
-    SET_USER_OBJ
+    SET_USER_OBJ,
+    UPDATE_USER_OBJ
 } from './userTypes'
 
 const initialState = {
@@ -36,8 +37,28 @@ const reducer = (state = initialState, action: any) => {
                 ...state,
                 userRowObj: action?.payload
             }
+        case UPDATE_USER_OBJ:
+            return {
+                ...state,
+                userRowObj: action?.payload,
+                users: updateUsersArr(state, action?.payload)
+            }
         default: return state
     }
 }
-
+function updateUsersArr(state: any, payload: any) {
+    state.users = state.users.filter((data: any) => {
+        if (data.id === payload?.id) {
+            // data = payload
+            data.name = payload?.name
+            data.email = payload?.email
+            data.address.city = payload?.city
+            data.phone = payload?.phone
+            data.website = payload?.website
+            data.company.name = payload?.cname
+        }
+        return data
+    })
+    return state.users
+}
 export default reducer

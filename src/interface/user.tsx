@@ -4,17 +4,17 @@ export interface Geo {
 }
 
 export interface Address {
-    street: string;
-    suite: string;
-    city: string;
-    zipcode: string;
-    geo: Geo;
+    street?: string;
+    suite?: string;
+    city?: string;
+    zipcode?: string;
+    geo?: Geo;
 }
 
 export interface Company {
-    name: string;
-    catchPhrase: string;
-    bs: string;
+    name?: string;
+    catchPhrase?: string;
+    bs?: string;
 }
 
 export interface UserRootObject {
