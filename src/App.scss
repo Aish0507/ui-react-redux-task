@@ -1,0 +1,31 @@
+.wrapper {
+  &>.grid-container {
+    display: inherit;
+    grid-template-columns: auto auto auto auto;
+    padding: 10px;
+    text-align: center;
+
+    &>.grid-item {
+      position: relative;
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+
+      &.card {
+        display: inline-block;
+        border: 1px solid #eee;
+        box-shadow: 0 2px 2px #ccc;
+        width: 200px;
+        padding: 20px;
+        margin: 20px;
+      }
+    }
+
+  }
+}
+
+.ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
