@@ -52,7 +52,7 @@ const EditUser = ({ setuserFData }: { setuserFData: any }) => {
                 className='f-control'
                 value={inputField?.name || ''} />
 
-            <br />
+
             <label htmlFor="Email">
                 Email
             </label>
@@ -65,7 +65,7 @@ const EditUser = ({ setuserFData }: { setuserFData: any }) => {
                 className='f-control'
                 value={inputField?.email || ''} />
 
-            <br />
+
             <label htmlFor="phone">
                 Phone
             </label>
@@ -77,7 +77,7 @@ const EditUser = ({ setuserFData }: { setuserFData: any }) => {
                 placeholder="phone"
                 className='f-control'
                 value={inputField?.phone || ''} />
-            <br />
+
             <label htmlFor="City">
                 City
             </label>
@@ -89,7 +89,7 @@ const EditUser = ({ setuserFData }: { setuserFData: any }) => {
                 placeholder="city"
                 className='f-control'
                 value={inputField?.city || ''} />
-            <br />
+
             <label htmlFor="website">
                 Website
             </label>
@@ -100,7 +100,7 @@ const EditUser = ({ setuserFData }: { setuserFData: any }) => {
                 placeholder="website"
                 className='f-control'
                 value={inputField?.website || ''} />
-            <br />
+
             <label htmlFor="cname">
                 Company Name
             </label>
@@ -112,7 +112,7 @@ const EditUser = ({ setuserFData }: { setuserFData: any }) => {
                 placeholder="cname"
                 className='f-control'
                 value={inputField?.cname || ''} />
-            <br />
+
         </Fragment>
     )
 }

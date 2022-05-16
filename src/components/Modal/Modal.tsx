@@ -36,7 +36,7 @@ const Modal = ({ show, close, title, children, userFData, updateUserRowObj }: { 
                     <main className="modal_content">{children}</main>
                     <footer className="modal_footer">
                         <button className="modal-close" onClick={() => close()}>
-                            Cacel
+                            Cancel
                         </button>
                         <button className="submit" onClick={() => submitButton()}>Submit</button>
                     </footer>
