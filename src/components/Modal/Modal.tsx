@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import ReactDom from "react-dom";
 import { connect } from 'react-redux'
-import { UserRootObject } from "../interface/user";
+import { UserRootObject } from "../../interface/user";
 import "./Modal.scss";
 
 const updateUserRow = (user: any) => ({ type: 'UPDATE_USER_OBJ', payload: user })
@@ -15,11 +15,14 @@ const mapDispatchToProps = (dispatch: any) => {
         updateUserRowObj: (user: UserRootObject) => dispatch(updateUserRow(user))
     }
 }
+
 const Modal = ({ show, close, title, children, userFData, updateUserRowObj }: { show: any, close: any, title: any, children: any, userFData: any, updateUserRowObj: any }) => {
+
     const submitButton = () => {
         updateUserRowObj(userFData)
         close()
     }
+
     return ReactDom.createPortal(
         <Fragment>
             <div
@@ -39,7 +42,6 @@ const Modal = ({ show, close, title, children, userFData, updateUserRowObj }: { 
                     </footer>
                 </div>
             </div>
-
         </Fragment>,
         document.getElementById("modal") as HTMLElement
     );

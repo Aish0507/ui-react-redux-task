@@ -1,20 +1,21 @@
 import React, { Fragment, useState } from 'react';
 import './Landing.scss'
-import Users from './Users';
+import Users from '../User/Users';
+
 const Landing = () => {
     const [showUserList, setshowUserList] = useState(false);
     const handleUserListClick = () => {
         setshowUserList(!showUserList)
     }
+
     return (
         <Fragment>
             <div className="main1">
                 <div className="bg-img">
                     <nav className="menu-bar">
                         <h2>amdocs test</h2>
-
-                        <button className="contact-btn" onClick={handleUserListClick}>{showUserList ? 'Hide User List' : 'User List'}</button>
-
+                        <button className="contact-btn" onClick={handleUserListClick}>{showUserList ? 'Hide User List' : 'User List'}
+                        </button>
                         <div className="hamburger">
                             <div></div>
                             <div></div>
@@ -47,4 +48,5 @@ const Landing = () => {
         </Fragment>
     )
 }
+
 export default Landing

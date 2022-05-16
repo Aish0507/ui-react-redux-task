@@ -25,5 +25,6 @@
    ### - landing page is responsive based on test input added my creativity (with custom SCSS)
    ### - landing page include two section. For Left side I have added dummy text(as logo). At right side top added button having user list feature. OnClick button page will be autoscroll(Used useRef Hook) to list view at botton and button text will get change from User List to Hide User List.
    ### - On double click of particular user grid modal popup will open with autofilled selected user details, user can update value if want. Onclick of submit button value will get upated(Directly in redux store) and pop up will be closed. User can see updated value in grid.
+   ### - Added Redux logger to track each activity just for someone who dont have redux extension. Its just for development purpose to keep log.
 
 

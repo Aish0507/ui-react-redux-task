@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import './EditUser.scss'
+
 const EditUser = ({ setuserFData }: { setuserFData: any }) => {
     const user: any = useSelector((state: any) => state?.user?.userRowObj)
     const [inputField, setInputField] = useState<any>({
@@ -11,6 +12,7 @@ const EditUser = ({ setuserFData }: { setuserFData: any }) => {
         website: '',
         cname: '',
     })
+
     useEffect(() => {
         setInputField({
             name: user?.name,
@@ -22,6 +24,7 @@ const EditUser = ({ setuserFData }: { setuserFData: any }) => {
             id: user?.id,
         })
     }, [user])
+
     const inputsHandler = (e: any) => {
         const { name, value } = e.target;
         setInputField((prevState: any) => ({
@@ -29,10 +32,12 @@ const EditUser = ({ setuserFData }: { setuserFData: any }) => {
             [name]: value,
         }));
     }
+
     useEffect(() => {
         setuserFData(inputField)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [inputField]);
+
     return (
         <Fragment>
             <label htmlFor="name">

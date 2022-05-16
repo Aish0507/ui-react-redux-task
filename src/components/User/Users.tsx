@@ -1,10 +1,10 @@
 import React, { Fragment, useEffect, useRef, useState } from 'react'
 import { connect } from 'react-redux'
-import { UserRootObject } from '../interface/user'
-import { fetchUsers } from '../redux'
-import EditUser from './EditUser'
-import Modal from './Modal'
-import Tooltip from './Tooltip'
+import { UserRootObject } from '../../interface/user'
+import { fetchUsers } from '../../redux'
+import EditUser from './EditUser/EditUser'
+import Modal from '../Modal/Modal'
+import Tooltip from '../Tooltip/Tooltip'
 
 const setUserRowObj = (user: any) => ({ type: 'SET_USER_OBJ', payload: user })
 const mapStateToProps = (state: any) => {
@@ -20,14 +20,17 @@ const mapDispatchToProps = (dispatch: any) => {
         setUserRowObj: (user: UserRootObject) => dispatch(setUserRowObj(user))
     }
 }
+
 function Users({ userData, fetchUsers, setUserRowObj, showUserList }: { userData: any, fetchUsers: any, setUserRowObj: any, showUserList: any }) {
     const [modal, setModal] = useState(false);
     const Toggle = () => setModal(!modal);
     const [userFData, setuserFData] = useState({});
     const userListRef = useRef<any>(null)
+
     useEffect(() => {
         fetchUsers()
     }, [fetchUsers, showUserList])
+
     const handleScrollTopClick = () => {
         window.scrollTo({
             top: 0,
@@ -35,6 +38,7 @@ function Users({ userData, fetchUsers, setUserRowObj, showUserList }: { userData
         })
         showUserList = false
     }
+
     const handleClick = (parameter: UserRootObject) => (e: any) => {
         if (e.detail === 2) {
             setModal(!modal)
@@ -47,17 +51,16 @@ function Users({ userData, fetchUsers, setUserRowObj, showUserList }: { userData
                 cname: parameter?.company?.name,
                 id: parameter?.id,
             }
-            console.log(userMap)
             setUserRowObj(userMap)
         }
     }
+
     return userData?.loading ? (
         <h2>Loading</h2>
     ) : userData?.error ? (
         <h2>{userData?.error}</h2>
     ) : (
         <Fragment>
-
             <div className='grid-container'>
                 {userData?.users?.map((user: UserRootObject, index: number) =>
                     <div key={index} className="grid-item card" onClick={handleClick(user)}>
